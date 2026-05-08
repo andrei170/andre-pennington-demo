@@ -345,38 +345,72 @@
   body.nav-open .mobile-nav-inner > *:nth-child(5) { transition-delay: 0.34s; }
   body.nav-open .mobile-nav-inner > *:nth-child(6) { transition-delay: 0.4s; }
 
-  /* HERO */
+  /* HERO — split layout (text left, portrait right at native 4:5) */
   .hero {
     position: relative; min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
+    display: flex; align-items: center;
     overflow: hidden;
     padding-top: 100px; padding-bottom: 80px;
-    background: var(--bg);
+    background:
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 100%);
   }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background-image: url('photos/andre-forbes.jpg');
-    background-image: -webkit-image-set(url('photos/andre-forbes.webp') type('image/webp') 1x, url('photos/andre-forbes.jpg') type('image/jpeg') 1x);
-    background-image: image-set(url('photos/andre-forbes.webp') type('image/webp') 1x, url('photos/andre-forbes.jpg') type('image/jpeg') 1x);
-    background-size: cover; background-position: 75% center;
-    animation: kenBurns 32s ease-in-out infinite alternate;
-    will-change: transform;
-  }
-  @keyframes kenBurns {
-    0% { transform: scale(1.05) translate(0, 0); }
-    100% { transform: scale(1.16) translate(-1.5%, -2%); }
-  }
-  .hero-overlay {
+  .hero-bg-pattern {
     position: absolute; inset: 0;
     background:
-      linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.78) 60%, rgba(255,255,255,0.95) 100%),
-      linear-gradient(95deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0.15) 100%);
+      radial-gradient(ellipse at top right, rgba(216, 181, 56, 0.08) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom left, rgba(22, 40, 72, 0.05) 0%, transparent 60%);
+    pointer-events: none;
   }
-  .hero-content {
+  .hero-grid {
     position: relative; z-index: 2;
-    max-width: 1100px; padding: 0 32px; width: 100%;
+    display: grid; grid-template-columns: 1.35fr 0.85fr;
+    gap: 64px; align-items: center;
+    max-width: 1280px; margin: 0 auto; width: 100%;
+    padding: 0 32px;
   }
-  @media (max-width: 720px) { .hero-content { padding: 0 20px; } }
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; padding: 0 32px; }
+  }
+  @media (max-width: 720px) {
+    .hero-grid { padding: 0 20px; }
+  }
+  .hero-content { width: 100%; }
+  .hero-portrait {
+    aspect-ratio: 4/5; overflow: hidden;
+    border: 1px solid var(--gold);
+    position: relative;
+    background: var(--bg-card);
+    box-shadow: 0 24px 60px rgba(22, 40, 72, 0.12);
+  }
+  .hero-portrait img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 22%;
+  }
+  .hero-portrait::after {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(22,40,72,0) 65%, rgba(22,40,72,0.22) 100%),
+      linear-gradient(135deg, rgba(216,181,56,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-portrait-badge {
+    position: absolute; bottom: 18px; left: 18px; right: 18px; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px;
+  }
+  .hero-portrait-badge .badge-text {
+    font-family: var(--display); font-style: italic;
+    font-variation-settings: "SOFT" 80, "WONK" 1;
+    font-size: 13px; color: var(--bg);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+  }
+  .hero-portrait-badge .badge-mark {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  @media (max-width: 1024px) {
+    .hero-portrait { max-width: 380px; margin-left: auto; margin-right: auto; }
+  }
+  @media (max-width: 720px) { .hero-content { padding: 0; } }
   .hero-eyebrow {
     color: var(--gold-deep); font-size: 11px; font-weight: 600;
     letter-spacing: 0.28em; text-transform: uppercase;
@@ -518,6 +552,54 @@
   .work-body p { color: var(--ink-dim); margin: 0 0 18px; line-height: 1.7; font-size: 15px; flex: 1; }
   .work-link { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy); display: inline-flex; align-items: center; gap: 8px; background: none; border: none; padding: 0; cursor: pointer; font-family: var(--sans); align-self: flex-start; }
   .work-link:hover { color: var(--gold-deep); }
+
+  /* STAT-CARD VARIANT — typographic substitute when no landscape photo available */
+  .work-card.stat-card .stat-img {
+    aspect-ratio: 16/9;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(216, 181, 56, 0.12) 0%, transparent 60%),
+      linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-deeper) 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    color: var(--bg);
+  }
+  .work-card.stat-card .stat-img::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(216, 181, 56, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 30%);
+    pointer-events: none;
+  }
+  .work-card.stat-card .stat-img::after { display: none; }
+  .work-card.stat-card .work-tag { background: var(--gold); color: var(--navy); border: 1px solid var(--gold); }
+  .work-card.stat-card .stat-content {
+    position: relative; z-index: 2;
+    text-align: center;
+  }
+  .work-card.stat-card .stat-big {
+    font-family: var(--display);
+    font-style: italic;
+    font-variation-settings: "SOFT" 80, "WONK" 1;
+    font-size: clamp(72px, 10vw, 130px);
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 4px;
+  }
+  .work-card.stat-card .stat-sub {
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--bg);
+    letter-spacing: -0.005em;
+    opacity: 0.92;
+  }
+  .work-card.stat-card .stat-tag {
+    margin-top: 18px;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+  }
 
   /* AWARDS / PRESS BAND */
   .awards-band { background: var(--bg-deep); color: var(--bg); position: relative; }
@@ -713,7 +795,6 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-bg { animation: none; transform: scale(1.05); }
     .marquee-track { animation: none; }
     .scroll-line { animation: none; }
     .dot { animation: none; }
@@ -762,32 +843,43 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content reveal">
-    <div class="hero-eyebrow">Wealth Attorney® · Inc. 5000 CEO · Forbes Finance Council · Air Force Major</div>
-    <h1>
-      <span class="line">Estate. Asset.</span>
-      <span class="line">Wealth.</span>
-      <span class="line">Built to <em>endure</em>.</span>
-    </h1>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <span class="label">Founder</span>
-        <span class="value">Pennington Law · 2016</span>
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid">
+    <div class="hero-content reveal">
+      <div class="hero-eyebrow">Wealth Attorney® · Inc. 5000 CEO · Forbes Finance Council · Air Force Major</div>
+      <h1>
+        <span class="line">Estate. Asset.</span>
+        <span class="line">Wealth.</span>
+        <span class="line">Built to <em>endure</em>.</span>
+      </h1>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="label">Founder</span>
+          <span class="value">Pennington Law · 2016</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="label">CEO</span>
+          <span class="value">Universal Wealth · 1,500 advisors</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="label">Recognized in</span>
+          <span class="value">WSJ · NYT · Inc. · Forbes</span>
+        </div>
       </div>
-      <div class="hero-meta-item">
-        <span class="label">CEO</span>
-        <span class="value">Universal Wealth · 1,500 advisors</span>
-      </div>
-      <div class="hero-meta-item">
-        <span class="label">Recognized in</span>
-        <span class="value">WSJ · NYT · Inc. · Forbes</span>
+      <div class="hero-cta">
+        <button class="btn magnetic" data-trigger="modal">Schedule Consultation</button>
+        <a href="https://www.penningtonestateplanning.com/" target="_blank" rel="noopener" class="btn ghost magnetic">Pennington Law →</a>
       </div>
     </div>
-    <div class="hero-cta">
-      <button class="btn magnetic" data-trigger="modal">Schedule Consultation</button>
-      <a href="https://www.penningtonestateplanning.com/" target="_blank" rel="noopener" class="btn ghost magnetic">Pennington Law →</a>
+    <div class="hero-portrait reveal">
+      <picture>
+        <source srcset="photos/andre-forbes.webp" type="image/webp">
+        <img src="photos/andre-forbes.jpg" alt="Andre L. Pennington, Esq., Wealth Attorney" loading="eager">
+      </picture>
+      <div class="hero-portrait-badge">
+        <span class="badge-text">Andre L. Pennington, Esq.</span>
+        <span class="badge-mark">Forbes 2024</span>
+      </div>
     </div>
   </div>
   <div class="hero-scroll-hint">
@@ -846,7 +938,7 @@
             <img src="photos/andre-profile.jpg" alt="Andre L. Pennington — Wealth Attorney" loading="lazy">
           </picture>
         </div>
-        <div class="story-caption">"Everything I do is for them — that's how I relate to my clients." Photographed in Arizona.</div>
+        <div class="story-caption">"Everything I do is for them — that's how I relate to my clients."</div>
       </aside>
     </div>
   </div>
@@ -874,13 +966,14 @@
           <a href="https://www.penningtonestateplanning.com/" target="_blank" rel="noopener" class="work-link">Pennington Law →</a>
         </div>
       </article>
-      <article class="work-card reveal" id="wealth">
-        <div class="work-img">
+      <article class="work-card reveal stat-card" id="wealth">
+        <div class="work-img stat-img">
           <span class="work-tag">National Network</span>
-          <picture>
-            <source srcset="photos/andre-forbes.webp" type="image/webp">
-            <img src="photos/andre-forbes.jpg" alt="Universal Wealth — national financial network" loading="lazy">
-          </picture>
+          <div class="stat-content">
+            <div class="stat-big">1,500</div>
+            <div class="stat-sub">advisors nationwide</div>
+            <div class="stat-tag">Founded 2023</div>
+          </div>
         </div>
         <div class="work-body">
           <h3>Universal Wealth, LLC</h3>
