@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andre L. Pennington &middot; Before vs After &middot; AG1 Consulting</title>
+<meta name="description" content="Pennington Law dominates AI search for Arizona estate planning. The 7 capping issues quietly suppressing the next $780K to $2.26M in annual revenue. Audit + 90-day plan.">
+<meta property="og:title" content="Andre Pennington &middot; Before vs After">
+<meta property="og:description" content="The Wealth Attorney already in 4/4 AI answers. The 7 capping issues that fix to dominance. Audit + 90-day plan.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-elevated: #faf8f3;
+  --bg-card: #f3eee0;
+  --bg-deep: #162848;
+  --bg-deeper: #00112e;
+  --navy: #162848;
+  --navy-mid: #1f3a5f;
+  --navy-bright: #1e69b5;
+  --gold: #d8b538;
+  --gold-bright: #e6c750;
+  --gold-deep: #a87e24;
+  --cool: #dbe5eb;
+  --ink: #1a1a1a;
+  --ink-dim: #4a4a4a;
+  --muted: #848484;
+  --line: rgba(22, 40, 72, 0.14);
+  --line-strong: rgba(22, 40, 72, 0.30);
+  --line-gold: rgba(216, 181, 56, 0.4);
+  --red-x: #b04a3a;
+  --green-check: #557d4a;
+  --display: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--navy-bright); text-decoration: none; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+/* Top bar */
+.topbar { background: var(--navy); color: rgba(255,255,255,0.92); padding: 10px 0; font-size: 13px; }
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.topbar-tag { color: var(--gold); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 11px; }
+
+.hero { padding: 100px 0 80px; background: var(--bg-elevated); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: 5%; right: -10%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(216, 181, 56, 0.08), transparent 65%); filter: blur(60px); pointer-events: none; }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 32px; position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
+.eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--navy); font-weight: 700; margin-bottom: 24px; display: block; }
+.hero h1 { font-family: var(--display); font-weight: 600; font-size: clamp(44px, 6.5vw, 88px); line-height: 1; letter-spacing: -0.02em; margin-bottom: 32px; color: var(--navy); }
+.hero h1 em { font-style: italic; color: var(--gold-deep); }
+.hero p { color: var(--ink-dim); font-size: 19px; max-width: 720px; line-height: 1.55; }
+
+.section { padding: 80px 0; position: relative; }
+.section.alt { background: var(--bg-elevated); }
+.section.dark { background: var(--bg-deep); color: var(--cool); }
+.section.dark .section-title { color: #fff; }
+.section.dark .section-sub { color: rgba(219, 229, 235, 0.78); }
+.section-title { font-family: var(--display); font-weight: 600; font-size: clamp(32px, 4vw, 56px); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 16px; color: var(--navy); }
+.section-title em { font-style: italic; color: var(--gold-deep); }
+.section.dark .section-title em { color: var(--gold); }
+.section-sub { color: var(--ink-dim); font-size: 17px; margin-bottom: 56px; max-width: 720px; line-height: 1.6; }
+
+/* Compare cards */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.compare-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--bg); transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; }
+.compare-card:hover { border-color: var(--navy); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(22, 40, 72, 0.10); }
+.compare-label { padding: 16px 24px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; }
+.compare-label.current { background: rgba(176, 74, 58, 0.08); color: var(--red-x); border-bottom: 1px solid rgba(176, 74, 58, 0.18); }
+.compare-label.new { background: rgba(216, 181, 56, 0.10); color: var(--gold-deep); border-bottom: 1px solid var(--line-gold); }
+.compare-preview { aspect-ratio: 16/10; background: var(--bg-card); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.compare-preview-content { position: relative; z-index: 2; text-align: center; padding: 32px; }
+.compare-preview-content h3 { font-family: var(--display); font-size: 32px; font-weight: 600; letter-spacing: -0.01em; color: var(--navy); }
+.compare-preview-content p { color: var(--ink-dim); font-size: 14px; margin-top: 12px; }
+.compare-preview.current-bg { background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated)); }
+.compare-preview.new-bg { background: linear-gradient(135deg, var(--navy), var(--navy-mid)); }
+.compare-preview.new-bg .compare-preview-content h3 { color: var(--gold); }
+.compare-preview.new-bg .compare-preview-content p { color: rgba(255,255,255,0.78); }
+.compare-body { padding: 28px 32px; }
+.compare-body h4 { font-family: var(--display); font-size: 24px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.01em; color: var(--navy); }
+.compare-body p { color: var(--ink-dim); font-size: 14px; margin-bottom: 20px; }
+.compare-body ul { list-style: none; margin-bottom: 24px; }
+.compare-body li { padding: 6px 0; font-size: 14px; color: var(--ink-dim); display: flex; align-items: flex-start; gap: 10px; }
+.compare-body li::before { font-size: 12px; margin-top: 2px; flex-shrink: 0; font-weight: 700; }
+.current li::before { content: '\2717'; color: var(--red-x); }
+.new li::before { content: '\2713'; color: var(--green-check); }
+.compare-cta { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 4px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.25s; }
+.cta-current { border: 1px solid rgba(176, 74, 58, 0.4); color: var(--red-x); }
+.cta-current:hover { background: rgba(176, 74, 58, 0.06); }
+.cta-new { background: var(--navy); color: #fff; }
+.cta-new:hover { background: var(--navy-mid); }
+
+/* Bombshell */
+.bombshell-section { background: var(--bg-deeper); color: #fff; }
+.bombshell-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
+.bombshell-stat { font-family: var(--display); font-size: clamp(64px, 8vw, 120px); font-weight: 600; line-height: 1.05; color: var(--gold); letter-spacing: -0.025em; }
+.bombshell-codeline { font-family: 'Courier New', monospace; font-size: clamp(14px, 1.6vw, 20px); color: var(--gold); background: rgba(216, 181, 56, 0.1); padding: 14px 22px; border-radius: 4px; border-left: 3px solid var(--gold); display: inline-block; margin-top: 24px; max-width: 100%; }
+.bombshell-stat-label { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 18px; }
+.bombshell-content h2 { font-family: var(--display); font-size: clamp(32px, 4vw, 56px); font-weight: 600; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 24px; color: #fff; }
+.bombshell-content h2 em { font-style: italic; color: var(--gold); }
+.bombshell-content p { color: rgba(255,255,255,0.78); font-size: 17px; line-height: 1.7; margin-bottom: 16px; }
+.bombshell-content p strong { color: #fff; font-weight: 600; }
+
+/* Capping issues */
+.issues-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 40px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--bg); }
+.issues-row { display: grid; grid-template-columns: 80px 2fr 3fr 1fr; align-items: center; padding: 22px 32px; border-bottom: 1px solid var(--line); }
+.issues-row:last-child { border-bottom: none; }
+.issues-row.header { background: var(--bg-elevated); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; color: var(--ink-dim); padding: 18px 32px; }
+.issue-num { font-family: var(--display); font-size: 28px; font-weight: 600; color: var(--gold-deep); font-style: italic; }
+.issue-name { font-family: var(--display); font-size: 18px; font-weight: 600; color: var(--navy); }
+.issue-detail { font-size: 14px; color: var(--ink-dim); line-height: 1.5; }
+.issue-severity { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; padding: 6px 12px; border-radius: 100px; text-align: center; display: inline-block; }
+.severity-critical { background: rgba(176, 74, 58, 0.12); color: var(--red-x); }
+.severity-high { background: rgba(216, 181, 56, 0.18); color: var(--gold-deep); }
+.severity-medium { background: rgba(30, 105, 181, 0.10); color: var(--navy-bright); }
+
+/* Plan summary */
+.plan-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+.plan-card { padding: 36px 32px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; transition: all 0.3s; position: relative; }
+.plan-card:hover { border-color: var(--navy); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(22, 40, 72, 0.08); }
+.plan-num { font-family: var(--display); font-size: 13px; font-style: italic; color: var(--gold-deep); font-weight: 600; margin-bottom: 16px; display: block; letter-spacing: 0.05em; }
+.plan-card h4 { font-family: var(--display); font-size: 26px; font-weight: 600; line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.01em; color: var(--navy); }
+.plan-card p { color: var(--ink-dim); font-size: 14px; line-height: 1.6; }
+.plan-week { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy-bright); font-weight: 700; margin-top: 16px; display: inline-block; }
+
+/* Scorecard */
+.scorecard { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--bg); }
+.scorecard-header { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 24px 32px; background: var(--bg-card); border-bottom: 1px solid var(--line); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; color: var(--ink-dim); }
+.scorecard-row { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 18px 32px; border-bottom: 1px solid var(--line); align-items: center; }
+.scorecard-row:last-child { border-bottom: none; }
+.scorecard-row:hover { background: var(--bg-elevated); }
+.scorecard-label { font-size: 15px; color: var(--navy); }
+.scorecard-cell { font-size: 14px; }
+.scorecard-cell.current { color: var(--red-x); }
+.scorecard-cell.new { color: var(--green-check); font-weight: 600; }
+.scorecard-cell.same { color: var(--ink-dim); font-weight: 500; }
+
+.cta-section { padding: 120px 0; text-align: center; background: var(--bg-elevated); }
+.cta-section h2 { font-family: var(--display); font-size: clamp(36px, 5vw, 64px); font-weight: 600; letter-spacing: -0.025em; margin-bottom: 24px; line-height: 1.05; color: var(--navy); }
+.cta-section h2 em { font-style: italic; color: var(--gold-deep); }
+.cta-section p { color: var(--ink-dim); font-size: 17px; margin-bottom: 40px; max-width: 580px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-button { display: inline-flex; align-items: center; gap: 8px; padding: 18px 36px; border-radius: 4px; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; transition: all 0.25s; }
+.cta-button.primary { background: var(--navy); color: #fff; }
+.cta-button.primary:hover { background: var(--navy-mid); transform: translateY(-2px); }
+.cta-button.ghost { border: 1px solid var(--line); color: var(--navy); background: var(--bg); }
+.cta-button.ghost:hover { border-color: var(--navy); }
+
+footer { padding: 32px 0; border-top: 1px solid var(--line); text-align: center; font-size: 12px; color: var(--muted); background: var(--bg-elevated); }
+footer a { color: var(--navy-bright); }
+
+@media (max-width: 1024px) {
+  .compare-grid { grid-template-columns: 1fr; }
+  .bombshell-grid { grid-template-columns: 1fr; gap: 32px; }
+  .plan-grid { grid-template-columns: 1fr 1fr; }
+  .issues-row { grid-template-columns: 60px 1fr 1fr; padding: 16px 20px; gap: 12px; }
+  .issues-row.header div:nth-child(4), .issues-row > div:nth-child(4) { display: none; }
+}
+@media (max-width: 720px) {
+  .plan-grid { grid-template-columns: 1fr; }
+  .issues-row { grid-template-columns: 50px 1fr; padding: 14px 16px; gap: 10px; }
+  .issues-row > div:nth-child(3) { grid-column: 1 / -1; padding-left: 60px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container topbar-inner">
+    <span class="topbar-tag">Search Audit Report &middot; Prepared by AG1 Consulting</span>
+    <span>For Andre L. Pennington, Esq. &middot; Pennington Law, PLLC</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Prepared for Andre L. Pennington &middot; AG1 Consulting</span>
+        <h1>You're already in the<br>AI answer. <em>Seven</em> issues<br>are capping the ceiling.</h1>
+        <p>Pennington Law dominates Arizona estate planning search. 9 of 10 organic results for "deferred sales trust arizona attorney." 4 of 4 AI engine recommendations across the flagship queries we tested. The 7 specific issues quietly suppressing the next $780K to $2.26M in annual revenue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Pennington Law's site: <em>before vs after</em></h2>
+    <p class="section-sub">Same Wealth Attorney trademark. Same Forbes Finance Council credentials. Same 138 indexed pages and 238 blog posts. Two very different growth ceilings depending on whether the 7 capping issues stay live or get fixed.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card">
+        <div class="compare-label current">Today &middot; Live Site</div>
+        <div class="compare-preview current-bg">
+          <div class="compare-preview-content">
+            <h3>penningtonestateplanning.com</h3>
+            <p>Currently live &middot; Click to view</p>
+          </div>
+        </div>
+        <div class="compare-body current">
+          <h4>What's capping growth</h4>
+          <p>The site is at Level 4 (Competing) in our 5-tier maturity model. Strong foundations. Specific surgical issues quietly suppressing the next 30 to 60 percent of the revenue ceiling.</p>
+          <ul>
+            <li>"60 years" homepage claim creates AZ ER 7.1 legal-advertising risk (Andre admitted to AZ bar in 2016)</li>
+            <li>NAP phone inconsistency: 623-229-0463 in header vs 623-292-5305 in body</li>
+            <li>Page-level edge caching disabled (every request is a cold render)</li>
+            <li>41 scripts on the homepage (render-blocking + INP score risk)</li>
+            <li>FAQPage schema missing on FAQ-rich pages</li>
+            <li>5 Phoenix-metro cities have no dedicated location page (~700 monthly searches off the table)</li>
+            <li>Cross-platform username mismatch (TikTok @andre_pennington vs IG @andrepennington)</li>
+          </ul>
+          <a href="https://www.penningtonestateplanning.com/" target="_blank" rel="noopener" class="compare-cta cta-current">View Live Site &rarr;</a>
+        </div>
+      </div>
+
+      <div class="compare-card">
+        <div class="compare-label new">Proposed &middot; Capping Fix Plan</div>
+        <div class="compare-preview new-bg">
+          <div class="compare-preview-content">
+            <h3>Pennington Law, dominant</h3>
+            <p>Click to explore the demo &rarr;</p>
+          </div>
+        </div>
+        <div class="compare-body new">
+          <h4>What we'd ship</h4>
+          <p>A surgical fix to the 7 capping issues, plus 5 new Phoenix-metro city pages and an authority amplification campaign that converts AI-Overview presence into AI-Overview headline.</p>
+          <ul>
+            <li>Day 1: replace "60 years" claim with compliant + truthful language (ER 7.1 risk eliminated)</li>
+            <li>Day 1: NAP standardized across header, body, GMB, Yelp, Avvo, Justia, Super Lawyers</li>
+            <li>Week 1: edge caching live, scripts deferred, viewport accessibility fixed</li>
+            <li>Week 2: FAQPage schema deployed on /estate-planning/, /trusts/, /surprise-estate-planning-lawyer/</li>
+            <li>Weeks 3-6: 5 Phoenix-metro city pages (Peoria, Goodyear, Glendale, Avondale, Litchfield Park)</li>
+            <li>Person schema with full credential stack (Forbes, Inc. 5000, USAF JAG, Wealth Attorney TM)</li>
+            <li>Forbes Finance Council article cadence + Phoenix Business Journal pitch</li>
+          </ul>
+          <a href="../" class="compare-cta cta-new">Open the Demo &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bombshell-section">
+  <div class="container">
+    <div class="bombshell-grid">
+      <div>
+        <div class="bombshell-stat-label">The single most expensive bug</div>
+        <div class="bombshell-codeline">"more than 60 years"<br>of helping Arizona</div>
+        <div class="bombshell-stat-label" style="margin-top: 28px;">Andre admitted to AZ bar: 2016</div>
+      </div>
+      <div class="bombshell-content">
+        <h2>One claim. <em>Two compounding risks.</em></h2>
+        <p>The Pennington Law homepage advertises "more than 60 years of helping Arizona." Andre Pennington passed the Arizona bar in 2016. Pennington Law was not a 60-year-old practice when this was written.</p>
+        <p><strong>Risk 1: AZ ER 7.1 legal-advertising compliance.</strong> The State Bar of Arizona prohibits false or misleading communication about an attorney's services. The "60 years" claim, as written, is a direct exposure surface for an ER 7.1 complaint. Filing an ER 7.1 complaint takes 5 minutes. Defending one costs days of attorney time and creates a public record.</p>
+        <p><strong>Risk 2: HNW prospect trust collapse.</strong> Estate-planning prospects do their own research. The moment a prospect cross-references "60 years" against the bar admission date, on-page trust signals collapse. CTR suppression and consultation drop-off follow.</p>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.55); font-style: italic;">Time to fix: 5 minutes. We do it on Day 1, before any other work begins. The replacement language ("Decades of combined trust, tax, and estate experience" or specific years for Andre + Christopher Baker + Anthony Coggin combined) preserves the trust value without the legal exposure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2 class="section-title">The <em>seven</em> capping issues.</h2>
+    <p class="section-sub">In severity order. Two are critical (legal exposure + local-pack suppression). Four are high (technical + schema gaps). One is medium (entity unification). All seven are surgical fixes inside 6 weeks.</p>
+
+    <div class="issues-grid">
+      <div class="issues-row header">
+        <div></div>
+        <div>Issue</div>
+        <div>Why it caps growth</div>
+        <div>Severity</div>
+      </div>
+      <div class="issues-row">
+        <div class="issue-num">01</div>
+        <div class="issue-name">"60 years" homepage claim</div>
+        <div class="issue-detail">AZ ER 7.1 legal-advertising risk + HNW trust collapse on cross-reference</div>
+        <div><span class="issue-severity severity-critical">Critical</span></div>
+      </div>
+      <div class="issues-row">
+        <div class="issue-num">02</div>
+        <div class="issue-name">NAP phone inconsistency</div>
+        <div class="issue-detail">Two different phone numbers across pages confuses Google's local entity graph</div>
+        <div><span class="issue-severity severity-critical">Critical</span></div>
+      </div>
+      <div class="issues-row">
+        <div class="issue-num">03</div>
+        <div class="issue-name">Edge caching disabled</div>
+        <div class="issue-detail">Every request is a cold render. LCP suppression, ranking signal weakened</div>
+        <div><span class="issue-severity severity-high">High</span></div>
+      </div>
+      <div class="issues-row">
+        <div class="issue-num">04</div>
+        <div class="issue-name">41 homepage scripts</div>
+        <div class="issue-detail">Render-blocking, Total Blocking Time + INP score risk</div>
+        <div><span class="issue-severity severity-high">High</span></div>
+      </div>
+      <div class="issues-row">
+        <div class="issue-num">05</div>
+        <div class="issue-name">FAQPage schema missing</div>
+        <div class="issue-detail">FAQ-rich pages can't qualify for featured snippets or PAA capture</div>
+        <div><span class="issue-severity severity-high">High</span></div>
+      </div>
+      <div class="issues-row">
+        <div class="issue-num">06</div>
+        <div class="issue-name">5 Phoenix cities missing pages</div>
+        <div class="issue-detail">Peoria, Goodyear, Glendale, Avondale, Litchfield Park have ~700 monthly searches with no dedicated landing</div>
+        <div><span class="issue-severity severity-high">High</span></div>
+      </div>
+      <div class="issues-row">
+        <div class="issue-num">07</div>
+        <div class="issue-name">Cross-platform handle mismatch</div>
+        <div class="issue-detail">TikTok and IG handles different. Knowledge Graph entity unification suffers</div>
+        <div><span class="issue-severity severity-medium">Medium</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container">
+    <h2 class="section-title">You are already winning. <em>4 of 4</em> AI queries.</h2>
+    <p class="section-sub">Most of the prospects in our recent audit batch are invisible to AI search. Pennington Law is the inverse case. The opportunity is amplification, not absence. The capping issues are what stop "mentioned in the AI Overview" from becoming "headlined in the AI Overview" for high-intent commercial keywords.</p>
+
+    <div class="scorecard" style="background: rgba(255,255,255,0.03); border-color: rgba(216, 181, 56, 0.2);">
+      <div class="scorecard-header" style="background: rgba(0,0,0,0.3); border-color: rgba(216, 181, 56, 0.2); color: rgba(255,255,255,0.7);">
+        <div>AI Question Query</div>
+        <div>Today</div>
+        <div>Status</div>
+      </div>
+      <div class="scorecard-row" style="border-color: rgba(216, 181, 56, 0.12);"><div class="scorecard-label" style="color: var(--cool);">"Best estate planning attorney Phoenix Arizona?"</div><div class="scorecard-cell new">&check; Mentioned</div><div class="scorecard-cell same" style="color: var(--cool);">Top 5 in AI list</div></div>
+      <div class="scorecard-row" style="border-color: rgba(216, 181, 56, 0.12);"><div class="scorecard-label" style="color: var(--cool);">"Deferred sales trust attorney near me?"</div><div class="scorecard-cell new">&check; Dominant</div><div class="scorecard-cell same" style="color: var(--cool);">Multiple cites + 453 Trust national</div></div>
+      <div class="scorecard-row" style="border-color: rgba(216, 181, 56, 0.12);"><div class="scorecard-label" style="color: var(--cool);">"How to set up a trust Arizona high net worth?"</div><div class="scorecard-cell new">&check; Cited</div><div class="scorecard-cell same" style="color: var(--cool);">Pennington blog post in citation set</div></div>
+      <div class="scorecard-row" style="border-color: rgba(216, 181, 56, 0.12);"><div class="scorecard-label" style="color: var(--cool);">"Wealth Attorney Surprise Arizona?"</div><div class="scorecard-cell new">&check; Headline</div><div class="scorecard-cell same" style="color: var(--cool);">Trademark-anchored win</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">The <em>90-day</em> plan.</h2>
+    <p class="section-sub">Four phases. Day 1 fixes the highest-stakes legal-advertising risk. By day 60, the 5 missing Phoenix-metro cities are ranked. By day 90, Pennington Law is amplified, not just mentioned, in the AI Overview.</p>
+
+    <div class="plan-grid">
+      <div class="plan-card">
+        <span class="plan-num">&mdash; Phase 01</span>
+        <h4>Stop the bleed</h4>
+        <p>"60 years" claim replaced (Day 1). NAP standardized. Edge caching live. Scripts deferred. FAQ schema deployed. Person schema rebuilt with full credential stack. Cross-platform handles unified.</p>
+        <span class="plan-week">Week 1&ndash;2</span>
+      </div>
+      <div class="plan-card">
+        <span class="plan-num">&mdash; Phase 02</span>
+        <h4>Phoenix-metro expansion</h4>
+        <p>5 dedicated city pages built (Peoria, Goodyear, Glendale, Avondale, Litchfield Park). Local schema, geo-FAQ, unique content per page. GMB service-area expanded. Cross-linking from Surprise / Sun City West / Buckeye.</p>
+        <span class="plan-week">Weeks 3&ndash;6</span>
+      </div>
+      <div class="plan-card">
+        <span class="plan-num">&mdash; Phase 03</span>
+        <h4>Authority amplification</h4>
+        <p>Forbes Finance Council article cadence. Phoenix Business Journal feature pitch. 453 Trust national cross-citation. Wikipedia entity submission. Top 10 wealth-management podcast pitch sequence.</p>
+        <span class="plan-week">Weeks 4&ndash;10</span>
+      </div>
+      <div class="plan-card">
+        <span class="plan-num">&mdash; Phase 04</span>
+        <h4>Reputation flywheel</h4>
+        <p>Post-consultation review-request automation (target 6 to 10 new Google reviews per month). Monthly content cadence (2 posts per month). Monthly performance dashboard with rankings, AI mentions, citations, consultation bookings.</p>
+        <span class="plan-week">Weeks 6&ndash;12</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2 class="section-title">The <em>scorecard.</em></h2>
+    <p class="section-sub">Every signal Google and AI search engines check, the current penningtonestateplanning.com graded against the 90-day capping-fix and amplification plan.</p>
+
+    <div class="scorecard">
+      <div class="scorecard-header">
+        <div>Signal</div>
+        <div>Today</div>
+        <div>After plan</div>
+      </div>
+      <div class="scorecard-row"><div class="scorecard-label">"60 years" claim removed (ER 7.1 compliance)</div><div class="scorecard-cell current">&times; Live risk</div><div class="scorecard-cell new">&check; Fixed Day 1</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">NAP phone consistency across all pages</div><div class="scorecard-cell current">&times; 2 numbers</div><div class="scorecard-cell new">&check; Standardized</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Edge caching configured</div><div class="scorecard-cell current">&times; Disabled</div><div class="scorecard-cell new">&check; Live</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">FAQPage schema on FAQ-rich pages</div><div class="scorecard-cell current">&times; None</div><div class="scorecard-cell new">&check; 12+ pages</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Person schema with full credential stack</div><div class="scorecard-cell current">Partial</div><div class="scorecard-cell new">&check; Forbes / Inc. 5000 / JAG / Wealth Attorney TM</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Phoenix-metro city pages</div><div class="scorecard-cell current">3 of 8</div><div class="scorecard-cell new">8 of 8</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">AI engine recommendation rate</div><div class="scorecard-cell same">4 of 4 ✓</div><div class="scorecard-cell new">4 of 4 + amplified</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">"Estate planning attorney Peoria" ranking</div><div class="scorecard-cell current">Buried</div><div class="scorecard-cell new">Top 3 target</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Featured snippet captures (PAA)</div><div class="scorecard-cell current">0</div><div class="scorecard-cell new">3+ target</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Forbes Finance Council article cadence</div><div class="scorecard-cell current">Member only</div><div class="scorecard-cell new">Quarterly published</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Monthly Google reviews collected</div><div class="scorecard-cell current">~2</div><div class="scorecard-cell new">8+</div></div>
+      <div class="scorecard-row"><div class="scorecard-label">Maturity tier</div><div class="scorecard-cell current">Level 4 Competing</div><div class="scorecard-cell new">Level 5 Dominant</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>The "60 years" claim is live <em>right now.</em></h2>
+    <p>Every day it stays on the homepage is a day an ER 7.1 complaint can be filed. The fix takes five minutes on Day 1. The other six issues take six weeks. Let's talk.</p>
+    <div class="cta-buttons">
+      <a href="mailto:info@andreicopy.net" class="cta-button primary">Book the Strategy Call &rarr;</a>
+      <a href="../" class="cta-button ghost">Open the Demo &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>AG1 Consulting &middot; Andrei Givero &middot; info@andreicopy.net &middot; <a href="https://andrei170.github.io/ag1/">andrei170.github.io/ag1</a></span>
+</footer>
+
+</body>
+</html>
